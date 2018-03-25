@@ -9,3 +9,7 @@ A collection of Python utilities.
 
 * *data*
 	* `StringUtils`
+
+* *storage*
+	* `mysql`
+	* `sqlite`

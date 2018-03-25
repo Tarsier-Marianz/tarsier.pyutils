@@ -1,6 +1,18 @@
 import re
 
 class StringUtils():
+	def as_string(self, obj):
+		if isinstance(obj, str):
+			return '"'+ escape(obj) +'"'
+		return str(obj)
+		
+	_esc_regex = re.compile(r"(\"|\'|\\)")
+	def escape_str(self, text):
+		# This escapes any escaped single or double quote or backslash.
+		x = _esc_regex.sub(r"\\\1", text)
+		# This replaces any '\n' with an escaped version and a real line break.
+		return re.sub(r'\n', r'\\n"\n"', x)
+		
     def non_alphanumeric(self, string):
         return ''.join(ch for ch in string if ch.isalnum())
 
